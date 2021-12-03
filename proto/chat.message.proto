@@ -1,0 +1,23 @@
+syntax="proto3";
+package chat_v1;
+option go_package="./chat_v1";
+
+
+message User {
+    string id = 1;
+    string display_name = 2;
+}
+
+message Message {
+    string id = 1;
+    User user = 2;
+    string message = 3;
+    string timestamp = 4;
+}
+
+message Connect {
+    User user = 1;
+    bool active = 2;
+}
+
+message Close{}

@@ -1,0 +1,12 @@
+syntax="proto3";
+package chat_v1;
+option go_package="./chat_v1";
+import "chat.message.proto";
+
+service Broadcast {
+    rpc CreateStream(Connect) returns (stream Message);
+    rpc BroadcastMessage(Message) returns (Close);
+}
+
+
+// protoc --go_out=plugins=grpc:./ proto/*.proto --proto_path=./proto
